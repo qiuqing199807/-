@@ -1,1 +1,1298 @@
-theme: jekyll-theme-cayman
+<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><meta name="renderer" content="webkit"/><meta property="qc:admins" content="15317273575564615446375"/><meta property="og:image" content="https://static.segmentfault.com/v-58e685d1/global/img/touch-icon.png"/><meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/><meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"/><meta name="apple-itunes-app" content="app-id=958101793, app-argument="><title>用 GitHub 来部署静态网页 ꒰･◡･๑꒱ - qianjiahao - SegmentFault</title><meta name="description" content="在尝试过用 GitHub 部署静态 HTML 网页后，觉得其实挺容易的，这里简单说说如何用 GitHub 来完成部署。 1.新建版本库 {代码...} 2.Automatic page generator {代码...} 3.自由配置信息 4.Continue to layouts {代..."/><meta name="keywords" content="网站部署,github,git"/><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="SegmentFault"/><link rel="shortcut icon" href="https://static.segmentfault.com/v-58e685d1/global/img/favicon.ico"/><link rel="apple-touch-icon" href="https://static.segmentfault.com/v-58e685d1/global/img/touch-icon.png"><meta name="msapplication-TileColor" content="#009a61"/><meta name="msapplication-square150x150logo" content="https://static.segmentfault.com/v-58e685d1/global/img/touch-icon.png"/><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="/feeds/questions"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="/feeds/blogs"><link rel="stylesheet" href="https://static.segmentfault.com/v-58e685d1/global/css/global.css"/><link rel="stylesheet" href="https://static.segmentfault.com/v-58e685d1/blog/css/blog.css"/><link rel="stylesheet" href="https://static.segmentfault.com/v-58e685d1/global/css/responsive.css"/></head><body data-mod="blog"
+    class="blog-post "><!--[if lt IE 9]><div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><![endif]--><img id="icon4weChat" style="height: 0;width: 0;" data-src="https://static.segmentfault.com/v-58e685d1/global/img/touch-icon-512.png"><div class="global-nav sf-header sf-header--index"><nav class="container nav"><div class="hidden-sm hidden-lg hidden-md"><div class="sf-header__logo sf-header__logo--response"><h1><a></a></h1></div><div class="dropdown m-menu"><a href="javascript:void(0);" id="dLabel" class="visible-xs-block m-toptools"
+           data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify"></span><span class="mobile-menu__unreadpoint"></span></a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"><li class="mobile-menu__item"><a href="/">首页</a></li><li class="mobile-menu__item"><a href="/news">头条</a></li><li class="mobile-menu__item"><a href="/questions">问答</a></li><li class="mobile-menu__item"><a href="/blogs">专栏</a></li><li class="mobile-menu__item"><a href="/lives">讲堂</a></li><li class="mobile-menu__item"><a href="/jobs">职位</a></li><li class="mobile-menu__item"><a href="/events">活动</a></li><li class="mobile-menu__item"><a href="/notes">笔记</a></li><li class="mobile-menu__item"><a href="/tags">标签</a></li><li class="mobile-menu__item"><a href="/users">榜单</a></li></ul></div><a href="/user/login" class="visible-xs-block pull-right m-ask m-toptools"><span
+                    class="glyphicon glyphicon-log-in"></span></a></div><div class="row hidden-xs"><div class="col-sm-8 col-md-8 col-lg-7"><div class="sf-header__logo"><h1><a href="/">SegmentFault</a></h1></div><ul class="menu list-inline pull-left hidden-xs"><li class="menu__item"><a href="/news">头条</a></li><li class="menu__item"><a href="/questions">问答</a></li><li class="menu__item"><a href="/blogs">专栏</a></li><li class="menu__item"><a href="/lives">讲堂</a></li><li class="menu__item"><a href="/jobs">职位</a></li><li class="menu__item"><a href="/events">活动</a></li></ul></div><div class="col-sm-4 col-md-4 col-lg-5 text-right"><form action="/search" class="header-search  hidden-sm hidden-xs mr20"><button class="btn btn-link"><span class="sr-only">搜索</span><span class="glyphicon glyphicon-search"></span></button><input id="searchBox" name="q" type="text"  placeholder="输入关键字搜索" class="form-control"
+                                   value=""/></form><ul class="opts list-inline hidden-xs"><li class="opts__item message has-unread"><a target="_blank" href="/tour"><span class="sr-only">消息</span><span id="messageCount" class="fa fa-hand-peace-o"></span></a></li><li class="opts__item"><a href="/user/login" class="SFLogin em ml10"
+                                       onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">注册 &middot;
+                                        登录</a></li></ul></div></div></nav></div><div class="global-navTags"><div class="container"><nav class=" nav"><ul class="nav__list"><li class="nav__item"><a href="/"><i class="fa fa-home"></i>home
+                            </a></li><li class="nav__item nav__item--split"><a><span class="split"></span></a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/javascript">javascript</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/php">php</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/python">python</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/java">java</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/mysql">mysql</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/ios">ios</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/android">android</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/node.js">node.js</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/html5">html5</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/linux">linux</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/c%2B%2B">c++</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/css3">css3</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/git">git</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/golang">golang</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/ruby">ruby</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/vim">vim</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/docker">docker</a></li><li class="nav__item tag-nav__item"><a
+                                                                                href="/t/mongodb">mongodb</a></li><li class="nav__item nav__item--more" data-open="0"><a class="nav__item--more-link"
+                                                                               href="/tags"><div class="tag__more"><i class="tag__more--icon"></i><i class="tag__more--icon"></i><i class="tag__more--icon"></i></div></a></li></ul><div class="tag-mgr__box hide"><input class="tag-mgr__query" type="text" placeholder="搜索关注的标签"
+                               data-tags='null'><div class="mCustomScrollbar" data-mcs-theme="minimal-dark"><ul class="tag-mgr__list"></ul></div><a href="/tags" class="btn btn-primary btn-sm tag-mgr__btn">标签管理</a></div></nav></div></div>
+    <div class="wrap">
+    <div class="post-topheader custom-">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <span class="post-topheader__title--icon-symbol">文</span>
+
+                    <div class="post-topheader__info" data-username="qianjiahao"
+                         data-userslug="qianjiahao"
+                         data-useravatar="https://sfault-avatar.b0.upaiyun.com/309/982/3099829444-555ac75eedca6_big64">
+
+                        <h1 class="h3 post-topheader__info--title" id="articleTitle" data-id="1190000002765287">
+
+                            <a href="/a/1190000002765287"> 用 GitHub 来部署静态网页 ꒰･◡･๑꒱</a>
+                        </h1>
+
+                        <ul class="taglist--inline inline-block article__title--tag mr10">
+                                                            <li class="tagPopup mb5"><a class="tag" href="/t/%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/blogs" data-toggle="popover"
+                                                            data-img="" data-placement="top"
+                                                            data-original-title="网站部署"
+                                                            data-id="1040000000189908">网站部署</a></li>
+                                                            <li class="tagPopup mb5"><a class="tag" href="/t/github/blogs" data-toggle="popover"
+                                                            data-img="https://sfault-avatar.b0.upaiyun.com/154/051/1540511964-1040000000091226_huge256" data-placement="top"
+                                                            data-original-title="github"
+                                                            data-id="1040000000091226">github</a></li>
+                                                            <li class="tagPopup mb5"><a class="tag" href="/t/git/blogs" data-toggle="popover"
+                                                            data-img="https://sfault-avatar.b0.upaiyun.com/346/251/346251195-1040000000089459_huge256" data-placement="top"
+                                                            data-original-title="git"
+                                                            data-id="1040000000089459">git</a></li>
+                                                    </ul>
+
+                        <div class="article__author">
+                            <a href="/u/qianjiahao" class="mr5 "><strong>qianjiahao</strong></a>
+                            2015年05月14日发布
+                                                                                </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 hidden-xs">
+                    <ul class="post-topheader__side list-unstyled">
+                        <li>
+                                                                                                <button type="button" class="btn btn-success btn-sm" data-id="1190000002765287"
+                                            id="sideLike">推荐
+                                    </button>
+                                                                                        <strong id="sideLiked">4</strong> 推荐
+                        </li>
+                        <li>
+                                                                                                <button type="button" id="sideBookmark" class="btn btn-default btn-sm"
+                                            data-id="1190000002765287" data-id="1190000002765287" data-type="article">收藏
+                                    </button>
+                                                                                        <strong id="sideBookmarked">64</strong> 收藏，<strong
+                                    class="no-stress">14.5k</strong> 浏览
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- end .post-topheader -->
+
+    <div class="container mt30">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main ">
+
+                
+                <div class="article fmt article__content" data-id="1190000002765287" data-license="cc">
+                    <html><body>
+<p>在尝试过用 GitHub 部署静态 HTML 网页后，觉得其实挺容易的，这里简单说说如何用 GitHub 来完成部署。</p>
+
+<h2>1.新建版本库</h2>
+
+<pre><code>首先咱们新建了一个版本库作为 demo，然后点击"settings"
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLuk"></span></p>
+
+<h2>2.<code>Automatic page generator</code>
+</h2>
+
+<pre><code>我们选择 "GitHub Pages" 的 "Automatic page generator"
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvD"></span></p>
+
+<h2>3.自由配置信息</h2>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvH"></span></p>
+
+<h2>4.<code>Continue to layouts</code>
+</h2>
+
+<pre><code>这里的google分析可以不填，咱们先把页面跑起来，点击"Continue to layouts"
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvI"></span></p>
+
+<h2>5.选择模板</h2>
+
+<pre><code>这里github给你提供了一些模板，我选了第一个模板，点击"Publish page"
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvL"></span></p>
+
+<h2>6.注意分支</h2>
+
+<pre><code>发布成功，这里是咱们的"gh-pages分支"
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvM"></span></p>
+
+<h2>7.访问页面</h2>
+
+<pre><code>点击"settings"，访问刚刚发布的静态页面链接
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvQ"></span></p>
+
+<h2>8.查看部署结果</h2>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLvS"></span></p>
+
+<h2>9.自定义你的页面</h2>
+
+<pre><code>我们修改它的模板 "index.html"
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang="en"&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;html5&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+    .theme{
+      display: block;
+      width: 200px;
+      font-size: 30px;
+      margin: 100px auto;
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="theme"&gt;
+  Hello, world.
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>10.<code>add -&gt; commit -&gt; push</code>
+</h2>
+
+<p>这里要注意一下，我是直接新建的库，然后发布的，所以，没有master分支，只有<code>gh-pages分支</code>，github只会将你的<code>gh-pages分支</code>部署上去，不会动你的其他分支的东西。所以，我们要将改动提交到gh-pages分支上，再push。</p>
+
+<pre><code>qianjiahaodeMacBook-Pro:HowToDeployHTML qianjiahao$ git branch
+* gh-pages
+
+qianjiahaodeMacBook-Pro:HowToDeployHTML qianjiahao$ git commit -a -m "first commit"
+[gh-pages cc8c864] first commit
+ 1 file changed, 23 insertions(+), 65 deletions(-)
+ rewrite index.html (98%)
+
+qianjiahaodeMacBook-Pro:HowToDeployHTML qianjiahao$ git push origin gh-pages
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 523 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:qianjiahao/HowToDeployHTML.git
+   3d6ebe7..cc8c864  gh-pages -&gt; gh-pages
+</code></pre>
+
+<h2>11.确认结果</h2>
+
+<pre><code>提交成功，我们看看咱们的网页，熟悉的 `Hello,world`
+</code></pre>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLwF"></span></p>
+
+<h2>12.demo</h2>
+
+<blockquote>
+  <p>到此为止，差不多讲完了，这个是<a rel="nofollow" href="https://github.com/qianjiahao/HowToDeployHTML">demo的地址</a></p>
+</blockquote>
+
+<h2>13.默认目录</h2>
+
+<blockquote>
+  <p>它帮我们生成的目录结构其实不太好，咱们可以自己定义自己的目录结构，之前的一个<a rel="nofollow" href="https://github.com/qianjiahao/PlanDesigner">项目</a>目录结构是这样的</p>
+</blockquote>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLwT"></span></p>
+
+<h2>14.要注意的是：</h2>
+
+<blockquote>
+  <p>它会认准你的<code>index.html</code>页面，当做初始界面，我试过将它的index.html放入我的目录结构中，后来我部署发布后，<code>github</code>又自动给我生成了一个index.html页面，这个问题当时没有发现，导致出现了<code>更新无效等奇葩的情况</code>，疑惑了半天。还有<code>params.json</code>会配置github给你生成的模板信息。</p>
+</blockquote>
+
+<h2>15.修改默认目录</h2>
+
+<blockquote>
+  <p>如果是将已有的（静态）项目部署上线，建议自己修改目录结构</p>
+</blockquote>
+
+<pre><code>改改更健康"꒰･◡･๑꒱"
+</code></pre>
+
+<h2>16.<code>google analytics</code>
+</h2>
+
+<blockquote>
+  <p>github推荐使用<a rel="nofollow" href="https://www.google.com/analytics/">google analytics</a>，在登录之后点击<code>管理</code>的<code>跟踪信息</code>，会看到它给你提供的id和code，把code粘贴到你的代码里，就可以了</p>
+</blockquote>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLyf"></span></p>
+
+<h2>17.分析和统计</h2>
+
+<blockquote>
+  <p><code>google analytics</code>会帮你自动的做分析和统计</p>
+</blockquote>
+
+<p><span class="img-wrap"><img data-src="/img/bVlLyp"></span></p>
+
+<h2><code>完~</code></h2>
+</body></html>
+                </div>
+                                                
+                <div class="clearfix mt10">
+
+                    <ul class="article-operation list-inline pull-left">
+                        <li><a href="/a/1190000002765287" class="text-muted">2015年05月14日发布</a></li>
+                                                                                                                            <li class="dropdown js__content-ops" data-module="article"
+                                data-id="1190000002765287"
+                                data-typetext="文章">
+                                <a href="javascript:void(0);" class="dropdown-toggle text-muted" data-toggle="dropdown">更多<b
+                                            class="caret"></b></a>
+                                <ul class="dropdown-menu dropdown-menu-left">
+                                    <li><a href="#911"
+                                           data-toggle="modal"
+                                           data-target="#911"
+                                           data-action="report"
+                                        >举报</a></li>
+                                                                            
+                                                                                                                        
+                                        
+                                                                    </ul>
+                            </li>
+                                            </ul>
+                </div>
+                <div class="mt10 text-center"><button type="button" id="mainLike" data-id="1190000002765287"
+                                    class="btn btn-success btn-lg mr15 ">
+                                4 推荐
+                            </button><button type="button" id="mainBookmark" data-type="article" data-id="1190000002765287"
+                                    class="btn btn-default btn-lg mr15 ">
+                                收藏
+                            </button></div>
+                                    <div class="recommend-post pt30 mt40 mb30 border-top">
+                        <div class="row">
+                            <div class="col-md-8">
+                                                                    <h4 class="mt0">你可能感兴趣的文章</h4>
+                                    <ul class="widget-links list-unstyled">
+                                                                                    <li class="widget-links__item">
+                                                <a href="/a/1190000006870987"
+                                                   title="从零开始搭建hexo静态博客">从零开始搭建hexo静态博客</a>
+                                                <small class="text-muted">
+                                                    2 收藏，571
+                                                    浏览
+                                                </small>
+                                            </li>
+                                                                                    <li class="widget-links__item">
+                                                <a href="/a/1190000004076989"
+                                                   title="使用 Hexo + Next 搭建静态博客">使用 Hexo + Next 搭建静态博客</a>
+                                                <small class="text-muted">
+                                                    4 收藏，1.9k
+                                                    浏览
+                                                </small>
+                                            </li>
+                                                                                    <li class="widget-links__item">
+                                                <a href="/a/1190000004327492"
+                                                   title="Hugo -最好用的静态网站生成器">Hugo -最好用的静态网站生成器</a>
+                                                <small class="text-muted">
+                                                    10 收藏，1.8k
+                                                    浏览
+                                                </small>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="col-md-4">
+                                                                    <div class="article-license">
+                                                                                                                            <img class="mb5" src="https://static.segmentfault.com/v-58e685d1/global/img/creativecommons-cc.svg"
+                                                 height="24"/><br/>
+                                                                                <div class="license-item text-muted">
+                                            本作品采用 <a
+                                                    href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"
+                                                    class="alert-link">署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+                                            。
+                                        </div>
+
+                                    </div>
+                                                            </div>
+                        </div>
+
+                    </div>
+                                <!-- <ul class="list-unstyled text-muted mt30">
+                                        <li>上一篇：<a href="/a/1190000002753931">盘点JavaScript里好用的原生API  ꒰･◡･๑꒱</a></li>
+                                                            <li class="mt5">下一篇：<a href="/a/1190000002898071">基于sails.js快速构建实时web应用（一）30秒构建一个Todo应用</a></li>
+                                    </ul> -->
+
+                <h2 class="h4 post-comment-title"></h2>
+                
+        <div class="comments--news comments--default" data-id="1190000002765287" data-user-id="" data-author-id="1030000002571964 "
+         data-is-admin="null">
+        <div class="mb10">
+            <strong class="comments-stat pull-left mr10">10 条评论</strong>
+            <div class="btn-group comments-sort">
+                <button type="button" class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <span class="comments-sort-text">默认排序</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="javascript:;" data-sort="default">默认排序</a></li>
+                    <li><a href="javascript:;" data-sort="asc">时间排序</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="comments-container">
+                                <div class="comments-list">
+                <div class="comments-item" data-id="1050000002765710">
+            <div class="pull-left">
+                <a href="/u/qiukeren" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/181/684/1816844681-554b837fc4241_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002765710" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/qiukeren">大舒</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2015年05月14日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>Gitpages 的自动生成工具唯一的作用是给项目生成介绍页面……<br>
+想写博客还得自己用 jekyll 这类的静态网站工具来写，然后上传到gh-pages分支。</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002765774">
+            <div class="pull-left">
+                <a href="/u/qianjiahao" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/309/982/3099829444-555ac75eedca6_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002765774" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/qianjiahao">qianjiahao</a></strong>
+                    <span class="comments-isAuthor ">作者</span>
+                    <span class="comments-date">  ·  2015年05月14日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>兄弟，经你这么一说，我发现我好像会错意了，哈哈，难怪github提供的模板页面有下载的选项，哈哈，这下是通了 ^-^</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002767245">
+            <div class="pull-left">
+                <a href="/u/tcitry" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/169/171/1691718077-1030000000309532_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002767245" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/tcitry">tcitry</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2015年05月14日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>不用上传到gh-pages分支，那是gitcafe的要求。Github和coding.net都可以到主分支， Github只支持ruby系列的静态生成器，coding.net的演示功能相当于一个app engine，支持大部分应用部署，博主可以试试，这些我都试过，只是最后做博客还是转用自己的vps了。。</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002767254">
+            <div class="pull-left">
+                <a href="/u/qianjiahao" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/309/982/3099829444-555ac75eedca6_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002767254" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/qianjiahao">qianjiahao</a></strong>
+                    <span class="comments-isAuthor ">作者</span>
+                    <span class="comments-date">  ·  2015年05月14日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>厉害！</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002880949">
+            <div class="pull-left">
+                <a href="/u/lee1994522" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/406/448/4064487591-55509bb7adc4d_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002880949" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/lee1994522">lee1994522</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2015年06月06日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>博主对angular有兴趣的话，欢迎加入Angular专业群，这里都是志同道合的伙伴，一起学习交流。Q群号：285137623</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002881013">
+            <div class="pull-left">
+                <a href="/u/qianjiahao" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/309/982/3099829444-555ac75eedca6_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002881013" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/qianjiahao">qianjiahao</a></strong>
+                    <span class="comments-isAuthor ">作者</span>
+                    <span class="comments-date">  ·  2015年06月06日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>哇，这都被发现了~   已加~</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002881201">
+            <div class="pull-left">
+                <a href="/u/lee1994522" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/406/448/4064487591-55509bb7adc4d_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002881201" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/lee1994522">lee1994522</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2015年06月06日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>已通过</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002882341">
+            <div class="pull-left">
+                <a href="/u/qiukeren" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/181/684/1816844681-554b837fc4241_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002882341" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/qiukeren">大舒</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2015年06月06日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>github上有内容的项目可以新建gh-pages分支，专门存放项目的gitpage，没内容的项目可以直接用主分支存放gitpage。</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000002883107">
+            <div class="pull-left">
+                <a href="/u/tcitry" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/169/171/1691718077-1030000000309532_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000002883107" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/tcitry">tcitry</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2015年06月07日</span>
+                </div>
+
+                <div class="fmt mb10">
+<p>Orz学习了</p>
+</div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+                <div class="comments-item" data-id="1050000005177454">
+            <div class="pull-left">
+                <a href="/u/json_zhang" target="_blank"><img class="avatar-32 " src="https://sfault-avatar.b0.upaiyun.com/156/339/1563397913-571cd562b3492_medium40" alt=""></a>
+            </div>
+            <div class="comments-content">
+                <div class="comment-trigger">
+                    <div class="pull-right">
+                        <a href="#911" class="ml10" data-toggle="modal" data-target="#911" data-action="report" data-action-text="举报" data-module="comment" data-id="1050000005177454" data-typetext="评论" data-placement="top" title="举报"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></a>
+                                            </div>
+                    <strong><a target="_blank" href="/u/json_zhang">json_zhang</a></strong>
+                    <span class="comments-isAuthor hide"></span>
+                    <span class="comments-date">  ·  2016年05月22日</span>
+                </div>
+
+                <div class="fmt mb10"><p>谢谢作者，描述的很详细，学习了。</p></div>
+
+                <p class="comment-ops">
+                    <span class="comments-zan ">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="comments-zan-text">赞</span>
+                        <span class="comments-zan-value"></span>
+                    </span>
+                    <span class="ml15 comments-reply-btn">回复</span>
+                </p>
+
+                <div class="reply-list reply-list--empty">
+                    
+                    <div class="reply-item reply-item--ops">
+                        <a class="reply-inner-btn" href="javascript:;">添加回复</a>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+            </div>
+    <div class="comments-loading hide">载入中...</div>
+    <div class="comments-more hide"><a href="javascript:;">显示更多评论</a></div>
+
+                        <div class="comments-box">
+                <div class="pull-left">
+                    <img class="avatar-32 "
+                         src="https://static.segmentfault.com/v-58e685d1/global/img/user-128.png"
+                         alt=""/>
+                </div>
+                <div class="comments-box-content">
+                    <form action="/api/article/[id]/comments/add">
+                        <div class="form-group mb0">
+                                            <textarea name="text" rows="3" class="form-control"
+                                                      placeholder="文明社会，理性评论"></textarea>
+
+                            <div class="mt15 text-right">
+                                <button type="button" class="hide"></button>
+                                <button class=" btn btn-primary" type="button">发布评论</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+                    </div>
+    </div>
+
+
+
+
+
+
+                                    
+                
+            </div><!-- /.main -->
+
+
+            <div class="col-xs-12 col-md-3 side">
+                <div class="sfad-sidebar">
+      <div class="sfad-item">
+    <ins data-revive-zoneid="2" data-revive-block="1" data-revive-target="_blank" data-revive-ct0='1491557606' data-revive-id="0042ddc520dc895b7aa784fe6f9339bd"></ins>
+    <button class="close" type="button" aria-hidden="true">&times;</button>
+</div>
+
+  </div>
+
+
+                <div class="widget-box widget-box--blog-info">
+                    <div class="blog__sidebar-author " >
+                                                    <button type="button"
+                                    class="btn btn-sm btn-success follow-user ml10 pull-right"
+                                    data-do="follow"
+                                    data-type="user"
+                                    data-id="1030000002571964">关注作者
+                            </button>
+                        
+                        <div class="article__widget--author">
+                            <a href="/u/qianjiahao">
+                                <img class="avatar-40" src="https://sfault-avatar.b0.upaiyun.com/309/982/3099829444-555ac75eedca6_big64" alt="qianjiahao">
+                            </a>
+                            <a class="article__widget-author-name" href="/u/qianjiahao">
+                                <strong>qianjiahao</strong>
+                            </a>
+                            <p class="article__widget-author-text-muted mb0">
+                                <span>8k 声望</span>
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+                                        <div class="blog__sidebar-blog-name">
+                        <p class="article__widget-author-text-muted mt15 mb5">发布于专栏</p>
+
+                        <h4 class="fz16"><a href="/blog/qianjiahao">qianjiahao</a></h4>
+                        <p class="article__widget-author-desc">积跬步者，方能至千里</p>
+
+                        <p>
+                            <span class="article__widget-author-text-muted">31 人关注</span>
+                            
+                                                                    <button type="button mb20"
+                                            class="btn btn-sm btn-default follow-article pull-right"
+                                            data-do="follow"
+                                            data-type="blog"
+                                            data-id="1200000002664918">关注专栏
+                                    </button>
+                                
+                                                    </p>
+
+                    </div>
+                    
+
+                </div>
+
+
+                
+                    <div data-type="widget" data-api="/api/bookmarkArchive/hots" data-api-overwrite="/api/bookmarkArchive/1190000002765287/related">
+        <script type="text/template">
+            <div class="widget-box widget-box--bookmark no-border">
+                <h4 class="widget-box__title">相关收藏夹 <a id="widgetBookmarkRefresh" class="userstab pull-right"
+                                                          href="javascript:;">换一组</a></h4>
+                <ul class="widget-links list-unstyled media">
+                    <% _.each(data,function(d){ %>
+                    <li class="widget-links__item">
+                        <img class="pull-left pattern pattern-<%= d.id%19 %> mr10" src="https://static.segmentfault.com/v-58e685d1/global/img/pattern/<%= d.id%10 ? d.id%10 : 10 %>.svg" width="32">
+                        <div class="media-body">
+                            <a target="_blank" class="ellipsis mr0" href="<%- d.url %>"><%= d.name %></a>
+                            <p class="mb0">
+                                <span><%- d.num %></span> 个条目 <span class="division">|</span> <span><%- d.followers %></span> 人关注
+                            </p>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </script>
+    </div>
+
+
+                <div class="widget-share__full" data-text="用 GitHub 来部署静态网页 ꒰･◡･๑꒱"
+ data-url="https://segmentfault.com/a/1190000002765287" data-shorturl="http://sfau.lt/b5lLxz"></div>
+
+                <div class="post-nav hidden-xs">
+                    <div class="panel panel-default widget-outline">
+                        <div class="panel-heading">文章目录</div>
+                        <div class="panel-body">
+                            <div class="nav-body">
+                                <div class="highlight-title"></div>
+                                <ul class="articleIndex"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+<div id="shareToWeiboModal" class="modal" tabindex='-1'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">分享</h4>
+            </div>
+            <div class="modal-body">
+                <p class="sfModal-content">
+                    分享到微博？
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default dont-likeweibo" data-dismiss="modal">取消</button>
+                <a href="" id="shareLink" class="btn btn-primary done-btn" target="_blank"
+                   onclick="$('#shareToWeiboModal').modal('hide')">分享</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+<script type="text/template" id="regNext">
+        <div class="row flex-vertical-center">
+        <div class="col-md-12">
+            <p class="mb0" style="font-size: 14px; margin-right:50px; font-family: Source Code Pro,Consolas,Menlo,Monaco,Courier New,monospace;">
+                    &lt;space&gt; or &lt;tab&gt;，这里有和你习惯相同的程序员
+            </p>
+            <button class="btn btn-primary SFLogin mr10"
+                    onclick='ga("send", "event", "join button", "clicked", "footer welcome popup");'>投入组织怀抱
+            </button>
+            <button class="btn  btn-default  tomorrow">Python 怎么办</button>
+        </div>
+
+    </div>
+</script>
+
+<div class="hidden widget-register widget-welcome-question mt20 hidden-xs hidden-sm widget-welcome widget-register-slideUp">
+    <div class="container">
+        <div class="row flex-vertical-center">
+            <div class="col-sm-12 col-md-8">
+                <p class="mb0">
+                                                                你好！看起来你挺喜欢这个内容，但是你还没有注册帐号。 <br><br>当你创建了帐号，我们能准确地追踪你关注的问题，在有新答案或内容的时候收到网页和邮件通知。<br>还能直接向作者咨询更多细节。如果上面的内容有帮助，记得点赞 (♥◠‿◠)ﾉ 表示感谢。
+                                    </p>
+
+            </div>
+            <div class="col-sm-12 col-lg-3 col-lg-offset-1 col-md-4">
+                <button class="btn btn-primary btn-lg SFLogin  mr10"
+                        onclick='ga("send", "event", "join button", "clicked", "footer welcome popup");'>立即注册
+                </button>
+                <button class="btn btn-lg btn-default  tomorrow">明天提醒我</button>
+            </div>
+            <div style="position: absolute;transform: scale(0.5,0.5) translate(300%,-60%);">
+                <img src="https://static.segmentfault.com/v-58e685d1/global/img/fool/welcome@2x.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal widget-911" id="911" tabindex='-1'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title"><span data-model="action"></span><span data-model="type"></span></h4>
+      </div>
+      <div class="modal-body">
+        <form id="reportForm">
+          <!-- 后台返回信息 -->
+          <p class="alert alert-warning" data-model="returnMsg"></p>
+          <div data-role="base">
+            <p>
+              <strong class="required">我要<span data-model="action"></span>该<span data-model="type"></span>，理由是：</strong>
+            </p>
+            <ul class="list-unstyled" data-model="list"></ul>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default pull-left" type="button" data-role="back" style="display:none">返回重选</button>
+                <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+        <button class="btn btn-primary" data-role="submit" type="button">提交</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<footer id="footer">
+    <div class="container">
+        <div class="row hidden-xs">
+            <dl class="col-sm-2 site-link">
+                <dt>网站相关</dt>
+                <dd><a href="/about">关于我们</a></dd>
+                <dd><a href="/tos">服务条款</a></dd>
+                <dd><a href="/faq">帮助中心</a></dd>
+                <dd><a href="/repu">声望与权限</a></dd>
+                <dd><a href="/markdown">编辑器语法</a></dd>
+                <dd><a href="//weekly.segmentfault.com/">每周精选</a></dd>
+                <dd><a href="/app">App 下载</a></dd>
+                <dd><a href="/community">社区服务中心</a></dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>联系合作</dt>
+                <dd><a href="/contact">联系我们</a></dd>
+                <dd><a href="/hiring">加入我们</a></dd>
+                <dd><a href="/link">合作伙伴</a></dd>
+                <dd><a href="/press">媒体报道</a></dd>
+                <dd><a href="https://board.segmentfault.com/">建议反馈</a></dd>
+                            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>常用链接</dt>
+                                                <dd><a href="//chrome.google.com/webstore/detail/segmentfault-%E7%AC%94%E8%AE%B0/pjklfdmleagfaekibdccmhlhellefcfo" target="_blank">笔记插件: Chrome</a></dd>
+                                                                <dd><a href="//addons.mozilla.org/zh-CN/firefox/addon/sf-note-ext/" target="_blank">笔记插件: Firefox</a></dd>
+                                                                <dd>订阅：<a href="/feeds">问答</a> / <a href="/feeds/blogs">文章</a></dd>
+                                                                <dd><a href="//mirrors.segmentfault.com/" target="_blank">文档镜像</a></dd>
+                                                                <dd><a href="//segmentfault.com/blog/interview" target="_blank">社区访谈</a></dd>
+                                                                <dd><a href="//segmentfault.com/d-day" target="_blank">D-DAY 技术沙龙</a></dd>
+                                                                <dd><a href="//segmentfault.com/hackathon" target="_blank">黑客马拉松 Hackathon</a></dd>
+                                                                <dd><a href="//namebeta.com/" target="_blank">域名搜索注册</a></dd>
+                                                                <dd><a href="https://shop165859711.taobao.com/" target="_blank">周边店铺</a></dd>
+                                            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>关注我们</dt>
+                                <dd><a href="//github.com/SegmentFault" target="_blank">Github</a></dd>
+                                <dd><a href="//twitter.com/segment_fault" target="_blank">Twitter</a></dd>
+                                <dd><a href="http://weibo.com/segmentfault" target="_blank">新浪微博</a></dd>
+                                <dd><a href="//segmentfault.com/blog/segmentfault_team" target="_blank">团队日志</a></dd>
+                                <dd><a href="//segmentfault.com/blog/segmentfault" target="_blank">产品技术日志</a></dd>
+                                <dd><a href="//segmentfault.com/blog/community_admin" target="_blank">社区运营日志</a></dd>
+                                <dd><a href="//segmentfault.com/blog/segmentfault_news" target="_blank">市场运营日志</a></dd>
+                            </dl>
+            <dl class="col-sm-4 site-link" id="license">
+                <dt>内容许可</dt>
+                <dd>除特别说明外，用户内容均采用 <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+                </dd>
+                <dd>本站由 <a target="_blank" href="https://www.upyun.com/?utm_source=segmentfault&utm_medium=link&utm_campaign=upyun&md=segmentfault">又拍云</a> 提供 CDN 存储服务
+                </dd>
+            </dl>
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2011-2017 SegmentFault. 当前呈现版本 17.02.05<br>
+            <a href="http://www.miibeian.gov.cn/" rel="nofollow">浙ICP备 15005796号-2</a> &nbsp;
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002000" rel="nofollow">浙公网安备 33010602002000号</a>
+        </div>
+        <p class="text-center">
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="mobile" href="javascript:;">移动版</a>
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="desktop" href="javascript:;">桌面版</a>
+        </p>
+    </div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+    <a id="backtop" class="hidden border-bottom" href="#">回顶部</a>
+
+    <div class="qrcodeWraper">
+        <a href="/app#qrcode"><span class="glyphicon glyphicon-qrcode"></span></a>
+        <img id="qrcode" class="border" alt="sf-wechat" src="https://static.segmentfault.com/v-58e685d1/page/img/app/appQrcode.png">
+
+        <p class="qrcode-text">扫扫下载 App</p>
+    </div>
+</div>
+
+<div class="app-promotion-bar">
+    <a href="javascript:;"><i class="fa fa-close close"></i></a>
+    <div class="icon"></div>
+    <h5 class="title h5">SegmentFault</h5>
+    <p class="describe">一起探索更多未知</p>
+    <a class="download-btn btn btn-sm btn-primary" href="/app#qrcode">下载 App</a>
+</div>
+
+<script id="loginModal" type="text/template">
+    <div class="row bg-white login-modal">
+        <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+            <h1 class="h4 text-muted login-title">用户登录</h1>
+            <form action="/api/user/login" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="username" class="control-label">手机号 或 Email</label>
+                    <input type="text" class="form-control" name="username" required placeholder="11 位手机号 或 Email"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label><span class="pull-right"><a
+                                href="/user/forgot">忘记密码</a></span>
+                    <input type="password" class="form-control" name="password" required placeholder="密码">
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right pl20 pr20"
+                            onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录
+                    </button>
+                </div>
+            </form>
+            <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+            <div class="widget-login mt30">
+                <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+                <a href="/user/oauth/google" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span
+                            class="icon-sn-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+                <a href="/user/oauth/github" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span
+                            class="icon-sn-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+                <a href="/user/oauth/weibo" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span
+                            class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+                <a href="/user/oauth/qq" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                            class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+                <a href="/user/oauth/weixin" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                            class="icon-sn-weixin"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+                <a href="/user/oauth/linkedin" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "linkedin"});'><span
+                            class="icon-sn-linkedin"></span> <strong class="visible-xs-inline">LinkedIn 账号</strong></a>
+                <span id="loginShowMore" style="cursor: pointer" class="mb5"><span class="icon-sn-dotted"></span><strong
+                            class="visible-xs-inline">•••</strong></span>
+                <a href="/user/oauth/twitter" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span
+                            class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+                <a href="/user/oauth/facebook" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span
+                            class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+                <a href="/user/oauth/douban" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span
+                            class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+            </div>
+        </div>
+        <div class="login-vline hidden-xs hidden-sm"></div>
+        <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+            <h1 class="h4 text-muted login-title">注册新账号</h1>
+            <form action="/api/user/phone/register" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="name" class="control-label">名字</label>
+                    <input type="text" class="form-control" name="name" required placeholder="真实姓名或常用昵称">
+                </div>
+
+
+                <div class="form-group js-register-switch-box">
+                    <div class="mb10">
+                        <label class="radio-inline">
+                            <input type="radio" name="register_type" value="phone" checked> 用手机号注册
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="register_type" value="mail"> 用 Email 注册
+                        </label>
+                    </div>
+                    <div class="js-register-switch-content">
+                        <input type="phone" class="form-control mb15" name="phone" required placeholder="仅支持大陆手机号"
+                               autocomplete="off">
+                        <div class="input-group"><input name="code" type="text"
+                                                        class="form-control js-user-login__phone-code-value"
+                                                        placeholder="短信验证码">
+                            <span class="input-group-btn"><button class="btn btn-default js-user-login__phone-vaild-btn"
+                                                                  style="width:96px;" type="button">获取验证码</button></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label class="required control-label">验证码</label>
+                    <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                    <div class="mt10"><a id="loginReloadCaptcha" href="javascript:void(0)"><img
+                                    data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50"/></a>
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary pl20 pr20 pull-right"
+                            onclick='ga("send", "event", "email register button", "clicked", "login modal");'>注册
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="position: absolute;transform: scale(0.5,0.5) translate(136%,-114%);">
+        <img src="https://static.segmentfault.com/v-58e685d1/global/img/fool/login@2x.png">
+    </div>
+
+    <div class="text-center text-muted mt30">
+    </div>
+</script>
+<script id="bindPhoneModal" type="text/template">
+    <div class="row bg-white bindphone-model">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert">
+                为了保证账号安全，请先绑定手机
+            </div>
+            <div>
+                <form class="form-horizontal form__bindphone-apply" style="background-color:#fff;padding:0;">
+                    <div class="form-group ">
+                        <label for="phoneNumber" class="col-sm-3 control-label required" >手机号码</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control bindphone--phone" id="phoneNumber" name="phone" placeholder="仅只支持大陆手机号">
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="authCode" class="col-sm-3 control-label required">验证码</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control bindphone--code" name="code" placeholder="短信验证码">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default user-bind__phone-vaild-btn" type="button">获取验证码</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "https://static.segmentfault.com/v-58e685d1"
+        };
+        w.SF.token = (function () {
+    var _Xmo = //'P'
+'76'+//'IT'
+'f41'+/* 'o'//'o' */''+'a'//'1OU'
++//'6c'
+'40b'+//'H'
+'02'+//'j8C'
+'5d8'+//'GQ1'
+'55b'+'675'//'L'
++'81'//'7n'
++/* 'S'//'S' */''+'d'//'y4'
++'3'//'toj'
++''///*'Y'*/'Y'
++//'cl8'
+'c2'+//'Y76'
+'56'+//'jcB'
+'88'+//'XN'
+'c8', _ahZK92W = [];
+
+    for (var i = 0; i < _ahZK92W.length; i ++) {
+        _Xmo = _Xmo.substring(0, _ahZK92W[i][0]) + _Xmo.substring(_ahZK92W[i][1]);
+    }
+
+    return _Xmo;
+})();;
+    })(window);
+
+                var lock = {
+        type: "",
+        text: '',
+        table: {"ban_post":[1,"\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+</script>
+    <script crossorigin src="https://static.segmentfault.com/v-58e685d1/3rd/assets.js"></script>
+    <script crossorigin src="https://static.segmentfault.com/v-58e685d1/blog/script/post.min.js"></script>
+
+<script async src="//sponsor.segmentfault.com/asyncjs.php"></script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            
+        
+
+            
+
+    ga('create', 'UA-918487-8', 'auto', {
+        'userID'
+    : 0,
+        'createdTime'
+    : 0,
+        'now'
+    : 1491557606 });
+    ga('set', 'dimension1', 'guest');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+</html>
+
